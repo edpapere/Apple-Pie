@@ -22,8 +22,13 @@ struct Game {
         for letter in word {
             if guessedLetters.contains(Character(letter.lowercased())) {
                 wordToDisplay += String(letter)
+            } else if """
+ -()
+
+""".contains(letter) {
+                wordToDisplay += String(letter)
             } else {
-                wordToDisplay += "-"
+                wordToDisplay += "_"
             }
         }
         return wordToDisplay
